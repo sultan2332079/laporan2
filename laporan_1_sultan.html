@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>LAPORAN TEORI</title>
+    <style id="style-mode">
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #222;
+        }
+        h2 {
+            color: #555;
+        }
+        h3 {
+            color: #0066cc;
+            cursor: pointer;
+        }
+        .section-content {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004999;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>LAPORAN TEORI</h1>
+    <h2>SultanNudzulIkhram | 202332079</h2>
+
+    <h3 onclick="toggleSection(this)">Pendahuluan</h3>
+    <div class="section-content">
+        <p>Pendahuluan berisi latar belakang, tujuan, dan ruang lingkup laporan teori.</p>
+    </div>
+
+    <h3 onclick="toggleSection(this)">Dasar Teori</h3>
+    <div class="section-content">
+        <p>Bagian ini membahas teori-teori dasar yang relevan dengan topik yang dibahas.</p>
+    </div>
+
+    <h3 onclick="toggleSection(this)">Metode Penulisan</h3>
+    <div class="section-content">
+        <p>Penjelasan tentang metode atau pendekatan yang digunakan dalam penulisan laporan teori.</p>
+    </div>
+
+    <h3 onclick="toggleSection(this)">Kesimpulan</h3>
+    <div class="section-content">
+        <p>Bagian kesimpulan berisi ringkasan dari laporan teori serta saran atau rekomendasi.</p>
+    </div>
+
+    <button onclick="toggleMode()">Ganti Mode Tampilan</button>
+
+    <script>
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            const confirmHide = confirm("Apakah Anda ingin menyembunyikan isi bagian ini?");
+            if (confirmHide) {
+                content.style.display = content.style.display === "none" ? "block" : "none";
+            }
+        }
+
+        function toggleMode() {
+            const style = document.getElementById("style-mode");
+            if (style.getAttribute("data-mode") === "berantakan") {
+                style.innerHTML = `
+                    body {
+                        background-color: #f0f0f0;
+                        color: #333;
+                        font-family: Arial, sans-serif;
+                        padding: 20px;
+                    }
+                    h1 { color: #222; }
+                    h2 { color: #555; }
+                    h3 { color: #0066cc; cursor: pointer; }
+                    .section-content { margin-left: 20px; margin-bottom: 20px; }
+                    button {
+                        margin-top: 20px;
+                        padding: 10px 20px;
+                        background-color: #0066cc;
+                        color: white;
+                        border: none;
+                        cursor: pointer;
+                    }
+                    button:hover { background-color: #004999; }
+                `;
+                style.setAttribute("data-mode", "rapi");
+            } else {
+                style.innerHTML = `
+                    body {
+                        background-color: #ff00ff;
+                        color: #00ff00;
+                        font-family: 'Comic Sans MS', cursive, sans-serif;
+                        padding: 50px;
+                    }
+                    h1 { color: #ff0000; font-size: 60px; }
+                    h2 { color: #0000ff; font-size: 50px; }
+                    h3 { color: #00ffff; font-size: 40px; cursor: pointer; text-decoration: underline; }
+                    .section-content { margin-left: 50px; margin-bottom: 50px; font-size: 30px; }
+                    button {
+                        margin-top: 50px;
+                        padding: 20px 40px;
+                        background-color: #ff9900;
+                        color: #000;
+                        border: 5px dashed #00f;
+                        cursor: pointer;
+                        font-size: 30px;
+                    }
+                    button:hover { background-color: #00ff00; color: #fff; }
+                `;
+                style.setAttribute("data-mode", "berantakan");
+            }
+        }
+    </script>
+
+</body>
+</html>
